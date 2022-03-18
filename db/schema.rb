@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_124058) do
+ActiveRecord::Schema.define(version: 2022_03_17_134736) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2022_03_17_124058) do
     t.string "address"
     t.string "tel"
     t.string "postcode"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(version: 2022_03_17_124058) do
     t.integer "total_price"
     t.integer "postage"
     t.integer "payment_method"
-    #t.string "adress"
-    #t.string "post_code"
+    t.string "address"
+    t.string "postcode"
     t.string "name"
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
@@ -121,12 +121,12 @@ ActiveRecord::Schema.define(version: 2022_03_17_124058) do
   end
 
   create_table "shippings", force: :cascade do |t|
-    #追加　customer_id
     t.string "address"
     t.string "postcode"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
