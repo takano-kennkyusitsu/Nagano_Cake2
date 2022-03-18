@@ -1,2 +1,15 @@
-<h1>Admin::Products#new</h1>
-<p>Find me in app/views/admin/products/new.html.erb</p>
+
+<h3>商品新規登録</h3>
+
+
+  <%= form_with model: @post do |f| %>
+    <div class= "field"><h5>商品画像<%= f.file_field :image,accept: "image/*" %></h5></div>
+    <div class= "field"><h5>商品名<%= f.text_field :name %></h5></div>
+    <div class= "field"><h5>商品説明<%= f.text_area :about %></h5></div>
+	　<h5>ジャンル</h5>
+	　<h5>税抜価格 <%= f.text_field :some_budget, {class: 'money'} %>円</h5>
+	　<h5>販売ステータス
+	  <%= f.radio_button :is_active, :sell%>
+	  <%= f.radio_button :is_active, :notsell %></h5>
+	  <%= f.submit '新規登録' %>
+<% end %>
