@@ -1,4 +1,6 @@
 class Admin::GenresController < ApplicationController
+  protect_from_forgery
+  
   def create
     genre = Genre.new(genre_params)
     genre.save
@@ -11,10 +13,21 @@ class Admin::GenresController < ApplicationController
   end
 
   def edit
+    @genre = Genre.find(params[:id])
   end
 
   def update
+    genre = Genre.find(params[:id])
+    genre.update(genre_params)
+    redirect_to admin_genres_path
   end
+  
+  #ジャンル消したい時用
+  #def destroy
+    #genre = Genre.find(params[:id])
+    #genre.destroy
+    #redirect_to admin_genres_path
+  #end
   
   private
   
