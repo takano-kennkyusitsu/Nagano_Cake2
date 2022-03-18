@@ -10,7 +10,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 namespace :admin do
-  get 'orders/:order_id/order_details/:id' => 'admin/order_details#update'
+  get 'orders/:order_id/order_details/:id' => 'order_details#update'
  end
  namespace :adimn do
   resources :orders, only: [:show, :update]
@@ -25,7 +25,7 @@ namespace :admin do
   resources :products, only: [:new, :create, :show, :index, :edit, :update]
  end
  namespace :admin do
-  get '/' => 'admin/homes#top'
+  get '/' => 'homes#top'
  end
  get '/' => 'homes#top'
  get '/about' => 'homes#about'
