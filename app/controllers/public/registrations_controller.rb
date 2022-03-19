@@ -61,7 +61,6 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-      before_action :configure_permitted_parameters, if: :devise_controller?
 
   # 新規登録保存機能
     protected
