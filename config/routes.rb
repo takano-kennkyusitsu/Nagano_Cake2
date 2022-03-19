@@ -27,16 +27,16 @@ namespace :admin do
  namespace :admin do
   get '/' => 'homes#top'
  end
- get '/' => 'homes#top'
- get '/about' => 'homes#about'
-  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
-  resources :cart_items, only: [:index, :update, :destroy, :create]
+ get '/' => 'public/homes#top'
+ get '/about' => 'public/homes#about'
+ resources :shippings, only: [:create, :edit, :index, :update, :destroy]
+ resources :cart_items, only: [:index, :update, :destroy, :create]
  get 'cart_items/destoroy_all'
   resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
  get 'orders/confirm'
-  resources :products, only: [:index, :show]
-  resource :customers, only: [:edit, :update]
+ resources :products, only: [:index, :show]
+ resource :customers, only: [:edit, :update]
  get 'customers/my_page' => 'customers#show'
  get 'customers/unsubscribe'
  get 'customers/withdraw'
