@@ -1,5 +1,14 @@
-<h1>Admin::Products#show</h1>
-<p>Find me in app/views/admin/products/show.html.erb</p>
+
+<h3>商品詳細</h3>
+<div><%#= image_tag @product.get_product_image, size: "350x250" %></div>
+<div>商品名<%= @product.name %></div>
+<div>商品説明<%= @product.about %></div>
+<div>ジャンル<%= @product.genre.name %></div>
+<div>税込価格（税抜価格）<%= @product.price %></div>
+ <% if @product.is_active == true %>
+                <p class="text-success font-weight-bold">販売中</p>
+              <% else %>
+                <p class="text-secondary font-weight-bold">販売停止中</p>
+              <% end %>
 
 
-<%= @product 
