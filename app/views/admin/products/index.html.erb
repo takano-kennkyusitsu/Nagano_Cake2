@@ -1,2 +1,35 @@
-<h1>Admin::Products#index</h1>
-<p>Find me in app/views/admin/products/index.html.erb</p>
+<h1>商品一覧</h1>
+
+<table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= @products.each do |product| %>
+      <tr>
+        <td></td>
+        <td>
+          <%#= link_to() do %>
+            <%#= image_tag book.user.get_image(50,50) %>
+          <%# end %>
+        </td>
+        <td><%= link_to product.name,product, class: "product_#{product.id}" %></td>
+        <td><%= product.price %></td>
+        <td><%= product.janre_id %></td>
+        <td><%= product.is_active %></td>
+      </tr>
+    <% end %>
+ 
+    
+  </tbody>
+</table>
+<%= paginate @products %>
+
+
+ 
