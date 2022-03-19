@@ -12,13 +12,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <% @customers.each do |customers| %>
-              <td><%= customer.id%></td>
-              <td><%= customer.name %></td>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.id %></td>
+              <td><%= customer.first_name %></td>
               <td><%= customer.email %></td>
-            <% end %>
-          </tr>  
+            </tr> 
+          <% end %>
         </tbody>
       </table>
     </div>
