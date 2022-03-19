@@ -6,13 +6,16 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to @product
+    if @product.save
+    redirect_to admin_products_path
+    else
+    render :new
+    end
   end
   
   def index
-    @products = Product.all
-    
+    @products = Product.page(params[:page])
+ 
   end
 
   def show
@@ -20,13 +23,20 @@ class Admin::ProductsController < ApplicationController
     
   end
 
- 
-
   def edit
     @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    
+    if @product.update(product_params)
+    redirect_to admin_product_path(@product) 
+    else
+    render:edit
+  
+    end
+    
   end
   
   private

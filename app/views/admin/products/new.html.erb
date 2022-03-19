@@ -1,15 +1,35 @@
 
 <h3>商品新規登録</h3>
 
-
-  <%= form_with model: @post do |f| %>
-    <div class= "field"><h5>商品画像<%= f.file_field :image,accept: "image/*" %></h5></div>
-    <div class= "field"><h5>商品名<%= f.text_field :name %></h5></div>
-    <div class= "field"><h5>商品説明<%= f.text_area :about %></h5></div>
-	　<h5>ジャンル</h5>
-	　<h5>税抜価格 <%= f.text_field :some_budget, {class: 'money'} %>円</h5>
-	　<h5>販売ステータス
-	  <%= f.radio_button :is_active, :sell%>
-	  <%= f.radio_button :is_active, :notsell %></h5>
-	  <%= f.submit '新規登録' %>
+　　<%= form_with model: @product do |f| %>
+       <div>商品画像<%= f.file_field :image,accept: "image/*" %></div>
+       <div>
+          <%= f.label :name, "商品名" %>
+          <%= f.text_field :name %>
+       </div>
+       <div>
+          <%= f.label :about, "商品説明" %>
+          <%= f.text_area :about %>
+       </div>
+       <div>
+          <%= f.label :ganre_id, "ジャンル" %>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>-選択してください-</option>
+                <option value="1">ケーキ</option>
+                <option value="2">ぷりん</option>
+                <option value="3">焼き菓子</option>
+                <option value="4">キャンディー</option></option>
+              </select>
+       </div>
+        
+       <div> 
+          <%= f.label :about, "税抜価格" %>
+          <%= f.text_field :price, {class: 'money'} %>円
+        </div>
+       <div>
+          <%= f.label :about, "販売ステータス" %>
+    	　<%= f.radio_button :is_active, 0, checked: true %>販売中
+          <%= f.radio_button :is_active, 1 %>販売停止中</h5>
+    	  <%= f.submit '新規登録', class: "btn btn-success" %>
+       </div>
 <% end %>

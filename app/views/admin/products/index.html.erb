@@ -1,22 +1,35 @@
 <h1>商品一覧</h1>
 
-
-<table class="teble">
+<table class='table table-hover table-inverse'>
   <thead>
     <tr>
-      <th class="header1">商品名</th>
-      <th class="header2">税抜価格</th>
-      <th class="header3">ジャンル</th>
+      <th>ID</th>
+      <th>商品名</th>
+      <th>税抜価格</th>
+      <th>ジャンル</th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>内容1</td>
-      <td>内容2</td>
-      <td></td>
-    </tr>
-  </tbody>
-  </table>
-<%# @products.each do |product| %> 
+    <%= @products.each do |product| %>
+      <tr>
+        <td></td>
+        <td>
+          <%#= link_to() do %>
+            <%#= image_tag book.user.get_image(50,50) %>
+          <%# end %>
+        </td>
+        <td><%= link_to product.name,product, class: "product_#{product.id}" %></td>
+        <td><%= product.price %></td>
+        <td><%= product.janre_id %></td>
+        <td><%= product.is_active %></td>
+      </tr>
+    <% end %>
  
+    
+  </tbody>
+</table>
+<%= paginate @products %>
+
+
  
