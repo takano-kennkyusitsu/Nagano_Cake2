@@ -39,8 +39,7 @@
 yarn-debug.log*
 .yarn-integrity
 
-<<<<<<< HEAD
-/config/environments/developments/config.hosts << "e6ae011321f0461290d7fb0a8e2b90e4.vfs.cloud9.us-east-1.amazonaws.com"
-=======
 
->>>>>>> origin/develop
+
+/config/enviroments/development.rb
+
