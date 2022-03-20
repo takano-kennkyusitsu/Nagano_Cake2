@@ -29,6 +29,8 @@ namespace :admin do
  namespace :admin do
   get '/' => 'homes#top', as: 'top'
  end
+ 
+ scope module: :public do
  get '/' => 'public/homes#top'
  get '/about' => 'public/homes#about'
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
@@ -42,6 +44,7 @@ namespace :admin do
  get 'customers/my_page' => 'customers#show'
  get 'customers/unsubscribe'
  get 'customers/withdraw'
+end
 
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
