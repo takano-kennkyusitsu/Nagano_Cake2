@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 namespace :admin do
   get 'orders/:order_id/order_details/:id' => 'order_details#update'
  end
- namespace :adimn do
+ namespace :adminn do
   resources :orders, only: [:show, :update]
  end
  namespace :admin do
@@ -29,12 +29,14 @@ namespace :admin do
  namespace :admin do
   get '/' => 'homes#top', as: 'top'
  end
- get '/' => 'public/homes#top'
- get '/about' => 'public/homes#about'
+
+ scope module: :public do
+ get '/' => 'homes#top'
+ get '/about' => 'homes#about'
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
  resources :cart_items, only: [:index, :update, :destroy, :create]
  get 'cart_items/destoroy_all'
-  resources :orders, only: [:new, :show, :index, :create]
+ resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
  get 'orders/confirm'
  resources :products, only: [:index, :show]
@@ -42,6 +44,7 @@ namespace :admin do
  get 'customers/my_page' => 'customers#show'
  get 'customers/unsubscribe'
  get 'customers/withdraw'
+ end
 
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
