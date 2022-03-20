@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+ devise_for :admin, controllers: {
+  sessions: 'admin/sessions'
+ }
 
-
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
+#devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  #sessions: "admin/sessions"
+#}
 namespace :admin do
   get 'orders/:order_id/order_details/:id' => 'order_details#update'
  end
@@ -25,7 +27,7 @@ namespace :admin do
   resources :products, only: [:new, :create, :show, :index, :edit, :update]
  end
  namespace :admin do
-  get '/' => 'homes#top'
+  get '/' => 'homes#top', as: 'top'
  end
  get '/' => 'public/homes#top'
  get '/about' => 'public/homes#about'
