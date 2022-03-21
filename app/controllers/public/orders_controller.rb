@@ -6,10 +6,9 @@ class Public::OrdersController < ApplicationController
  
   
   def create
-  cart_items = customer.cart_items.all
-
+  @cart_items = customer.cart_items.all
   @order = customer.orders.new(order_params)
-  if @order.save!
+  if @order.save
     cart_items.each do |cart|
       order_detail = OrderDetail.new
       order_detail.product_id = cart.product_id
@@ -26,35 +25,42 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order=current_customer.orders.find(params[:id])
+    #@order=Order.find(params[:id])
+    #@order.postage =800
   end
 
   def thank_you
   end
 
   def confirm
+    @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
+    @order.postage = 800
+    @total = @cart_items.inject(0) { |sum, item| sum + item.sub_total }
+    @total_price = @order.postage + @total
+
     if params[:order][:address] == "1"
-      @order.post_code = current.postcode
-      @order.address = current.address
-      @order.name = current.last_name + current.first_name
+      @order.post_code = current_.postcode
+      @order.address = current_customer.address
+      @order.name = current_customer.last_name + current.first_name
       
       
     elsif params[:order][:address] == "2"
-      delivery = Delivery.find(params[:order][:delivery_id])
-      @order.postcode = delivery.postcode
-      @order.address = delivery.address
-      @order.name = delivery.address_name
+      shipping = Shipping.find(params[:order][:delivery_id])
+      @order.postcode = shipping.postcode
+      @order.address = shipping.address
+      @order.name = shipping.name
     end
      
   end
 
   def index
+    @order = Order.all
   end
   
   
   private
-  def order_params
-    params.require(:order).permit(:payment_method, :postcode, :address, :name)
+  def   order_params
+    params.require(:order).permit(:name, :address, :total_price, :postage, :payment_method,:post_code)
   end
 end
