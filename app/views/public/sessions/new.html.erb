@@ -2,11 +2,16 @@
   <div class='row ml-5 mb-4'>
     <h4 class="log_in_box">ログイン</h4>
   </div>
+
+
+
+
+
   <div class= 'row mb-5'>
     <p class='col-5 offset-1 log_in_box'>会員の方はこちらからログイン</p>
+
   </div>
-  <form>
-  <%= form_with model: @user, url: customer_session_path do |f| %>
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label offset-2">メールアドレス</label>
       <div class="col-sm-8">
@@ -21,16 +26,17 @@
       </div>
     </div>
 
+
     <div class="row mb-5">
       <div class="col-2 offset-4">
       <%= f.submit "ログイン", class:"btn btn-primary"%>
       </div>
     </div>
-  </form>
   <% end %>
   <div class="row">
     <p class='col-5 offset-1 log_in_box'>会員登録がお済みでない方</p>
-    s
+    
+
   </div>
 
 </div>
