@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 namespace :admin do
   get 'orders/:order_id/order_details/:id' => 'order_details#update'
  end
- namespace :adminn do
+
+ 
+ namespace :admin do
+
   resources :orders, only: [:show, :update]
  end
  namespace :admin do
@@ -38,12 +41,14 @@ namespace :admin do
  get 'cart_items/destoroy_all'
  resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
- get 'orders/confirm'
+ post 'orders/confirm'
  resources :products, only: [:index, :show]
- resource :customers, only: [:edit, :update]
+ resource :customers, only: [:edit, :update], path: "customers/my_page"
  get 'customers/my_page' => 'customers#show'
  get 'customers/unsubscribe'
  get 'customers/withdraw'
+
+ patch 'customers/withdraw'
  end
 
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
