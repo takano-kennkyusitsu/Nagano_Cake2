@@ -15,7 +15,7 @@ namespace :admin do
   get 'orders/:order_id/order_details/:id' => 'order_details#update'
  end
 
- 
+
  namespace :admin do
 
   resources :orders, only: [:show, :update]
@@ -37,8 +37,8 @@ namespace :admin do
  get '/' => 'homes#top'
  get '/about' => 'homes#about'
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
+ delete 'cart_items/destroy_all'
  resources :cart_items, only: [:index, :update, :destroy, :create]
- get 'cart_items/destoroy_all'
  resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
  post 'orders/confirm'
