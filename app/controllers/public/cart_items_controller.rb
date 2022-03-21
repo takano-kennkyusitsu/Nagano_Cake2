@@ -7,14 +7,19 @@ class Public::CartItemsController < ApplicationController
   def update
   end
 
-  def destroy
+  def destroy_all
+    current_customer.cart_items.destroy_all
+    redirect_to cart_items_path
   end
 
-  def destoroy_all
+  def destroy
+    cart_item=CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
   end
 
   def create
-    if cart_item=CartItem.find_by(params[:cart_item][:product_id])
+    if cart_item=CartItem.find_by(product_id: params[:cart_item][:product_id])
       cart_item.quantity += params[:cart_item][:quantity].to_i
       cart_item.save
     else
