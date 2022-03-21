@@ -1,11 +1,13 @@
 
 <h3>商品詳細</h3>
-<div><%= image_tag @product.get_image %></div>
+
+<div><%=image_tag @product.get_image ,size: "200x150"%></div>
+
 <div>商品名<%= @product.name %></div>
 <div>商品説明<%= @product.about %></div>
 <div>ジャンル<%= @product.genre.name %></div>
 <div>税込価格（税抜価格)<%= @product.in_tax_price.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</div>
- 
+
 <% if @product.is_active == true %>
                 <p class="text-success font-weight-bold">販売中</p>
               <% else %>

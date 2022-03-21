@@ -11,9 +11,9 @@ class Public::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      @customer = Customer.new(configure_sign_in_params)
-     customer_state
+     #customer_state
      @customer.save
-     redirect_to "/"
+     redirect_to "products_path"
    end
 
   # DELETE /resource/sign_out
