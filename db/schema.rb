@@ -113,11 +113,11 @@ ActiveRecord::Schema.define(version: 2022_03_18_140349) do
     t.integer "genre_id"
     t.string "name"
     t.text "about"
-    t.string "image"
     t.integer "price"
     t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "image"
   end
 
   create_table "shippings", force: :cascade do |t|

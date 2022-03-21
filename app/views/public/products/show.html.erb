@@ -1,12 +1,20 @@
-<h3>商品詳細</h3>
-<div><%= @product.get_image %></div>
-<div>商品名<%= @product.name %></div>
-<div>商品説明<%= @product.about %></div>
-<div>ジャンル<%= @product.genre.name %></div>
-<div>税込価格（税抜価格)<%= @product.in_tax_price.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</div>
+<h3><%= @product.name %></h3>
+<div><%=image_tag @product.get_image ,size: "200x200"%></div>
+<div>ジャンル:<%=@product.genre.name %></div>
+<div><%= @product.about %></div>
+<div>¥<%= @product.in_tax_price.to_s(:delimited) %>(税込)円</div>
 
 <% if @product.is_active == true %>
-                <p class="text-success font-weight-bold">販売中</p>
-              <% else %>
-                <p class="text-secondary font-weight-bold">販売停止中</p>
-              <% end %>
+  <p class="text-success font-weight-bold">販売中</p>
+<% else %>
+  <p class="text-secondary font-weight-bold">販売停止中</p>
+<% end %>
+
+<p class="mt-3">数量を選択してください</p>
+<%=form_with model:@cart_item,local:true do |f| %>
+<%= f.hidden_field :customer_id, :value => current_customer.id %>
+<%= f.hidden_field :product_id, :value => @product.id %>
+<%= f.select :quantity,*[1..10] %>
+<%=f.submit 'カートに入れる',class:"btn btn-success"%>
+<% end %>
+
