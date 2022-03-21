@@ -3,8 +3,6 @@
 class Public::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-    before_action :configure_permitted_parameters, if: :devise_controller?
-
 
   # GET /resource/sign_up
   # def new
@@ -61,18 +59,4 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-  # 新規登録保存機能
-    protected
-
-  def after_sign_up_path_for(resource)
-      customers_my_page_path
-  end
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up,
-  			 keys: [:first_name, :last_name, :first_name_kana, :last_name_kana,
-                :email, :postcode, :address, :tel])
-
-  end
 end

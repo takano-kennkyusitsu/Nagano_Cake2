@@ -13,16 +13,3 @@
  *= require_tree .
  *= require_self
  */
-header,footer {
-  background-image: url(header1.jpeg);
-  background-size: cover;
-}
-
-.icon, .copy-light {
-  color: white;
-}
-
-.copy-light {
-  height: 100px;
-  line-height: 100px;
-}
