@@ -3,8 +3,8 @@ class Public::OrdersController < ApplicationController
    @order = Order.new
   end
 
- 
-  
+
+
   def create
   cart_items = customer.cart_items.all
 
@@ -38,21 +38,22 @@ class Public::OrdersController < ApplicationController
       @order.post_code = current.postcode
       @order.address = current.address
       @order.name = current.last_name + current.first_name
-      
-      
+
+
     elsif params[:order][:address] == "2"
       delivery = Delivery.find(params[:order][:delivery_id])
       @order.postcode = delivery.postcode
       @order.address = delivery.address
       @order.name = delivery.address_name
     end
-     
+
   end
 
   def index
+      @orders = current_customer.orders.page(params[:page])
   end
-  
-  
+
+
   private
   def order_params
     params.require(:order).permit(:payment_method, :postcode, :address, :name)
