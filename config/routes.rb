@@ -37,7 +37,7 @@ namespace :admin do
  get 'cart_items/destoroy_all'
   resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
- get 'orders/confirm'
+ post 'orders/confirm'
  resources :products, only: [:index, :show]
  resource :customers, only: [:edit, :update], path: "customers/my_page"
  get 'customers/my_page' => 'customers#show'
