@@ -38,16 +38,3 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-/config/enviroments/development.rb
->>>>>>> c77453d87206d859815ae0d736da1ec5c17148f5
-=======
-
-
-
-/config/enviroments/development.rb
-
->>>>>>> 9234ba7a863b661ab0f8b735e2dfe1d347e898c0

@@ -9,7 +9,6 @@ class CreateProducts < ActiveRecord::Migration[6.1]
       t.boolean :is_active
 
       t.timestamps
-      
     end
   end
 end
