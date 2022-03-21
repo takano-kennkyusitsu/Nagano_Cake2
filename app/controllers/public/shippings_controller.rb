@@ -1,8 +1,8 @@
 class Public::ShippingsController < ApplicationController
-  def new
-  end
 
   def create
+    shipping = Shipping.new(shipping_params)
+    shipping.save
   end
 
   def edit
@@ -12,8 +12,16 @@ class Public::ShippingsController < ApplicationController
   end
 
   def index
+    @shipping = Shipping.new
+    @shippings = Shipping.where(params[:customer_id])
   end
 
   def destroy
+  end
+
+  private
+
+  def shipping_params
+    params.require(:shipping).permit(:customer_id, :address, :postcode, :name)
   end
 end
