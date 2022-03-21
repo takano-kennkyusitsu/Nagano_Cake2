@@ -31,17 +31,19 @@ namespace :admin do
  end
  get '/' => 'public/homes#top'
  get '/about' => 'public/homes#about'
+ scope module: :public do
+
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
  resources :cart_items, only: [:index, :update, :destroy, :create]
  get 'cart_items/destoroy_all'
   resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
- get 'orders/confirm'
+ post 'orders/confirm'
  resources :products, only: [:index, :show]
  resource :customers, only: [:edit, :update]
  get 'customers/my_page' => 'customers#show'
  get 'customers/unsubscribe'
  get 'customers/withdraw'
-
+ end
   #For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
