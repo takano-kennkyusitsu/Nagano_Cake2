@@ -6,11 +6,98 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <%= link_to '/', class: 'navbar-brand' do %><h2 class="icon logo">Nagano Cake</h2><% end %>
+          <ul class="navbar-nav ml-auto">
+            <% if customer_signed_in? %>
+              <li>
+                <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">マイページ</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to products_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">商品一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to cart_items_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">カート</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_customer_session_path, class: 'nav-link text-light', method: :delete do %>
+                  <h6 class="icon">ログアウト</h6>
+                <% end %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to admin_products_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">商品一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">会員一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '/admin', class: 'nav-link text-light' do %>
+                  <h6 class="icon">注文履歴一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">ジャンル一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to destroy_admin_session_path, class: 'nav-link text-light', method: :delete do %>
+                  <h6 class="icon">ログアウト</h6>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to about_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">About</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to products_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">商品一覧</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">新規登録</h6>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+                  <h6 class="icon">ログイン</h6>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p class="copy-light">©️Nagano Cake All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
