@@ -6,6 +6,15 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <%= form_with model: @customer, url: customer_session_path do |f| %>
+    <div class="row mb-3">
+      <label for="inputEmail3" class="col-sm-2 col-form-label offset-2">メールアドレス</label>
+      <div class="col-sm-8">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control"%>
+      </div>
+    </div>
+
+
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
@@ -17,6 +26,11 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
+
+  <div class="row">
+    <p class='col-5 offset-1 log_in_box'>会員登録がお済みでない方</p>
+
+  </div>
 
   <div class="actions">
     <%= f.submit "Log in" %>
