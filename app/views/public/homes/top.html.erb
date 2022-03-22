@@ -10,25 +10,34 @@
 				  購入には会員登録が必要になります。<br>
 				 </p>
 				 </div>
+
+
 				 <div>
-				 <div class="row mt-4">
-    	  <section class="new-items col-md-12">
+    	  <section class="new-items col-md-9">
          <h3><strong>新着商品</strong></h3>
+           <div class="row">
 					<!-- 4つランダムに表示されます -->
-          <% @products.first(4).each do |product| %>
-          <%= link_to products_path(product) do %>
+          <% @products. each do |product| %>
+      		  <div class="col-2">
+            <div>
+          <%= link_to product_path(product) do %>
           <%= image_tag product.get_image, size:'100x100' %>
-          <% end %>
-          <% end %>
-
-
-
+        <% end %>
+            <div>
+         <h6><%= product.name %></h6>
+         <p><%= product.price %></p>
+ 						</div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
+  </div>
 				 <div class="col-md-12 text-right", style=text-decoration:underline>
 					<%= link_to "全ての商品を見る>",  products_path %>
 				</div>
-					</div>
 						</div>
-							</div>
+
 
 
 
