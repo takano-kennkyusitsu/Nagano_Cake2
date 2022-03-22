@@ -6,30 +6,18 @@ class Public::OrdersController < ApplicationController
  
   
   def create
-  @cart_items = customer.cart_items.all
-  @order = customer.orders.new(order_params)
-  if @order.save
-    cart_items.each do |cart|
-      order_detail = OrderDetail.new
-      order_detail.product_id = cart.product_id
-      order_detail.order_id = @order.id
-      order_detail.quantity = cart.quantity
-      order_detail.intax_price = cart.product.in_tax_price
-      order_detail.save
-    end
-    redirect_to orders_complete_path
-    cart_items.destroy_all
-  else
-    render :new
-  end
-  end
-
-  def show
-    @order=Order.find(params[:id])
-    #@order.postage =800
-  end
-
-  def thank_you
+ @order = current_customer.orders.new(order_params)
+   @order.save
+   @cart_items = current_customer.cart_items.all
+     @cart_items.each do |cart_item|
+        @order_items = @order.order_product.new
+        @order_items.products_id = cart_item.product.id
+        @order_items.name = cart_item.item.name
+        @order_items.price = cart_item.product.price
+        @order_items.quantity = cart_item.quantity
+        @order_items.save
+         current_customer.cart_items.destroy_all
+     end
   end
 
   def confirm
@@ -41,7 +29,7 @@ class Public::OrdersController < ApplicationController
   if params[:order][:address_number] == "1"
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
-      @order.name = current_customer.last_name + current_customer.first_name
+      @order.name = current_customer.first_name + current_customer.last_name
 
   elsif params[:order][:address_number] == "2"
       shipping = Shipping.find(params[:order][:shipping_id])
@@ -49,6 +37,13 @@ class Public::OrdersController < ApplicationController
       @order.address = shipping.address
       @order.name = shiping.name
   end 
+  end
+  
+   def show
+    @order=current_customer.orders.find(params[:id])
+   end
+
+  def thank_you
   end
 
   def index
