@@ -39,9 +39,9 @@ namespace :admin do
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
  delete 'cart_items/destroy_all'
  resources :cart_items, only: [:index, :update, :destroy, :create]
- resources :orders, only: [:new, :show, :index, :create]
  get 'orders/thank_you'
  post 'orders/confirm'
+ resources :orders, only: [:new, :show, :index, :create]
  resources :products, only: [:index, :show]
  resource :customers, only: [:edit, :update], path: "customers/my_page"
  get 'customers/my_page' => 'customers#show'
