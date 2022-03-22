@@ -2,7 +2,7 @@
   <div class='row ml-5 mb-4'>
     <h4 class="log_in_box">配送先登録/一覧</h4>
   </div>
-<%= form_with model: @shipping, url: shippings_path do |f| %>
+<%= form_with model: @shipping do |f| %>
     <div class="row mb-2">
       <label class="col-sm-4 col-form-label">郵便番号(ハイフンなし)</label>
       <div class="col-sm-8">
@@ -24,8 +24,7 @@
       </div>
     </div>
   <% end %>
-  <% @shippings.each do |shipping| %>
-  <table class="table">
+  <table class="table table-bordered">
     <tr>
       <th>郵便番号</th>
       <th>住所</th>
@@ -33,13 +32,23 @@
       <th></th>
     </tr>
     <tr>
-      <td><%=shipping.postcode %></td>
+
+
+  <% @shippings.each do |shipping| %>
+     <tr>
+      <th><%=shipping.postcode %></td>
       <td><%=shipping.address %></td>
       <td><%=shipping.name %></td>
-      <td><span><%=link_to edit_shipping_path</span></td>
+      <td><span><%=link_to "編集する",edit_shipping_path(shipping),class:"btn btn-success" %></span>
+          <span><%=link_to "削除する",shipping_path(shipping),method: :delete,class:"btn btn-danger" %></span>
+      </td>
     </tr>
-  </table>
   <% end %>
+  </div>
+
+  </table>
+
 
   </div>
+
 
