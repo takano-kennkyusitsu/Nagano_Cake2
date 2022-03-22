@@ -11,7 +11,7 @@
     </thead> 
   
     <tbody>
-    <%= @cart_items.each do |cart_item| %>
+    <% @cart_items.each do |cart_item| %>
     <tr>
       <td><%= cart_item.product.name %></td>
       <td><%= cart_item.product.in_tax_price %></td>
@@ -61,9 +61,7 @@
     <%= f.hidden_field :payment_method,value: @order.payment_method %>
     <%= f.hidden_field :address,value: @order.address %>
     <%= f.hidden_field :total_price, value: @total + @order.postage %>
+    <%= f.submit "注文確定する", class: 'btn-success' %>
   <% end %>
-</div>
-<div>
-  <%= link_to "注文を確定する", orders_thank_you_path, class: 'btn-success' %>
 </div>
 </div>
