@@ -2,12 +2,6 @@ class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
   end
-<<<<<<< HEAD
-
-
-
-=======
- 
 
   def confirm
     @cart_items = current_customer.cart_items
@@ -25,10 +19,10 @@ class Public::OrdersController < ApplicationController
       @order.postcode = shipping.postcode
       @order.address = shipping.address
       @order.name = shiping.name
-  end 
-  
-  
->>>>>>> origin/develop
+  end
+end
+
+
   def create
    @order = current_customer.orders.new(order_params)
    @order.save
@@ -41,9 +35,8 @@ class Public::OrdersController < ApplicationController
         @order_items.save
          current_customer.cart_items.destroy_all
      end
-  end
-  end
-  
+   end
+
    def show
     @order=current_customer.orders.find(params[:id])
    end
@@ -51,33 +44,10 @@ class Public::OrdersController < ApplicationController
   def thank_you
   end
 
-<<<<<<< HEAD
-  def confirm
-    @order = Order.new(order_params)
-    if params[:order][:address] == "1"
-      @order.post_code = current.postcode
-      @order.address = current.address
-      @order.name = current.last_name + current.first_name
-
-
-    elsif params[:order][:address] == "2"
-      delivery = Delivery.find(params[:order][:delivery_id])
-      @order.postcode = delivery.postcode
-      @order.address = delivery.address
-      @order.name = delivery.address_name
-    end
-
-  end
-
-  def index
-      @orders = current_customer.orders.page(params[:page])
-=======
   def index
     @orders_all = Order.page(params[:page])
     @orders = current_customer.orders
->>>>>>> origin/develop
   end
-
 
   private
   def   order_params
