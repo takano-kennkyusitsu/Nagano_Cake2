@@ -1,8 +1,72 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+
 
    <div class="container">
   <div class="row">
     <div class="col">
+        
+<div>
+    <h6>注文情報</h6>
+  <table>
+      <tr>
+        <td>注文日</td>
+        <th><%= @order.created_at.strftime("%Y/%m/%d") %></th>
+      </tr>
+      <tr>
+        <td>配送先</td>
+        <th><%= @order.postcode %><br>
+            <%= @order.address %></th>
+      </tr>
+      <tr>
+        <td>支払方法</td>
+        <th><%= @order.payment_method %></th>
+      </tr>
+      <tr>
+        <td>ステータス</td>
+        <th><%= @orders.status %></th>
+      </tr>
+  </table>
+</div>
+
+<div>
+    <h6>請求情報</h6>
+  <table>
+      <tr>
+        <td>商品合計</td>
+        <th><%= @total.to_s(:delimited) %></th>
+      </tr>
+      <tr>
+        <td>配送料</td>
+        <th><%= @order.postage %></th>
+      </tr>
+      <tr>
+        <td>ご請求額</td>
+        <th><%= @total_price.to_s(:delimited) %></th>
+  </table>
+</div>
+
+<div>
+    <h6>注文内容</h6>
+  <table>
+    <thead>
+      <tr>
+          <th>商品</th>
+          <th>単価（税込）</th>
+          <th>個数</th>
+          <th>小計</th>
+      </tr>
+    </thead>
+    <tbody>
+          <%= @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.product.name %></td>
+          <td><%= cart_item.product.in_tax_price %></td>
+          <td><%=cart_item.quantity %></td>
+          <td><%=cart_item.subtotal %></td>
+        </tr>
+      </tr>
+       <% end %>
+    </tbody>
+  </table>
+</div>
 
 
