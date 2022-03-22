@@ -14,14 +14,18 @@
  *= require_self
  */
 .logo {
-  font-family: 'Homemade Apple', cursive;
+  font-family: 'Pinyon Script', cursive;
 }
  
 header,footer {
   background-image: url(header1.jpeg);
   background-size: cover;
   font-family: 'Vollkorn', serif;
-  
+}
+
+main {
+  font-family: 'Vollkorn', serif;
+  margin-top: 60px;
 }
 
 .icon, .copy-light {
@@ -33,7 +37,27 @@ header,footer {
   line-height: 100px;
 }
 
-main {
-  background-color: #fdf5e6;
-  background-size: cover;
+.footer-logo {
+  text-align: center;
+  padding-top: 50px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100px;
+  color: #e6b422;
+  background-color: #24140e;
+  user-select: none;
+}
+
+.button:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.button:hover {
+  color: #e6b422;
+  opacity: 0.6;
 }
