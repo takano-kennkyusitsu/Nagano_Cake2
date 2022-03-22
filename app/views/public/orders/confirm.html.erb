@@ -28,7 +28,7 @@
   <table>
     <tr>
       <th>送料</th>
-      <td><%= @order.postage%></td>
+      <td><%= @order.postage %></td>
     </tr>
     <tr>
       <th>商品合計</th>
@@ -61,7 +61,7 @@
     <%= f.hidden_field :payment_method,value: @order.payment_method %>
     <%= f.hidden_field :address,value: @order.address %>
     <%= f.hidden_field :total_price, value: @total + @order.postage %>
-    <%= f.submit "注文確定する", class: 'btn-success' %>
+    <%= f.submit "注文確定する", class: 'button' %>
   <% end %>
 </div>
 </div>

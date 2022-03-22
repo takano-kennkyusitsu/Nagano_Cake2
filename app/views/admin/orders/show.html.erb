@@ -2,7 +2,8 @@
   <table>
     <tr>
       <td>購入者</td>
-      <th><%# link_to('Show', customer_path(current_user.id)) %></th>
+      <th> <%= link_to admin_customer_path(@order) do %></th>
+      <% end %>
     </tr>
     <tr>
       <td>注文日</td>
@@ -10,8 +11,8 @@
     </tr>
     <tr>
       <td>配送先</td>
-      <th><%= @oeder.postcode %><br>
-          <%= @oeder.address %></th>
+      <th><%= @order.postcode %><br>
+          <%= @order.address %></th>
     </tr>
     <tr>
       <td>支払方法</td>
@@ -19,9 +20,10 @@
     </tr>
     <tr>
       <td>ステータス</td>
-      <th><%= @orders.status %></th>
+      <th><%= @order.status %></th>
     </tr>
 </table>
+</div>
 <div>
   <table>
     <thead>
@@ -30,18 +32,21 @@
           <th>単価（税込）</th>
           <th>個数</th>
           <th>小計</th>
+          <th>製作ステータス</th>
+          <th></th>
       </tr>
     </thead>
     <tbody>
-          <%= @cart_items.each do |cart_item| %>
+          <% @order_details.each do |order_detail| %>
         <tr>
-          <td><%= cart_item.product.name %></td>
-          <td><%= cart_item.product.in_tax_price %></td>
-          <td><%=cart_item.quantity %></td>
-          <td><%=cart_item.subtotal %></td>
+          <td><%= order_detail.product.name %></td>
+          <td><%= order_detail.product.in_tax_price %></td>
+          <td><%= order_detail.quantity %></td>
+          <td><%= order_detail.sub_total %></td>
+          <td></td>
+          
         </tr>
-      </tr>
-       <% end %>
+          <% end %>
     </tbody>
   </table>
 </div>
