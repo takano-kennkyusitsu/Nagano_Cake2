@@ -1,4 +1,4 @@
-<%= @order.each do |order| %>
+
 
 <table class="table">
   <thead>
@@ -11,20 +11,24 @@
       <th scope="col">注文詳細</th>
     </tr>
   </thead>
+  
   <tbody>
-    <tr>
-      <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= order.address %></td>
-      <td><% order.order_details.each do |order_detail| %>
-    					        <%= order_detail.product.name %><br>
-    	    <% end %>
-    	</td>
-      <td><%= order.total_price.to_s(:delimited) %></td>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
+              <td><%= order.address %></td>
+              <td>
+                <% order.order_details.each do |order_detail| %>
+    					  <%= order_detail.product.name %><br>
+    					  <% end %>
+              </td>
+              <td><%= order.total_price.to_s(:delimited) %></td>
               <td><%= order.order_status %></td>
               <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
-
-    </tr>
-  </tbody>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
 </table>
+ <%= paginate @orders_all %>
 
-<% end%>

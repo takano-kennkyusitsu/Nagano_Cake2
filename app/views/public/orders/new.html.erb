@@ -15,19 +15,20 @@
   </div>
   
   <div>
-    <%= f.radio_button :address, 1 %>
-    <%= f.label :address_1, "ご自身の住所" %>
-    <%#= current_customer.address %>
+    <%= f.radio_button :address_number, 1 %>
+    <%= f.label :address_number_1, "ご自身の住所" %>
+    〒<%= current_customer.postcode %><%= current_customer.address %><%= current_customer.first_name %><%= current_customer.last_name %>
   </div> 
   
   <div>
-    <%= f.radio_button :address, 2 %>
+    <%= f.radio_button :address_number, 2 %>
+    <%= f.label :address_number_2, "登録済住所から選択" %>
     <%#= f.select :addresses_2, options_from_collection_for_select(Address.all, :id, :name) %>
   </div>
   
   <div>
-    <%= f.radio_button :address, 3 %>
-    <%= f.label :addresses_3, "新しいお届け先" %>
+    <%= f.radio_button :address_number, 3 %>
+    <%= f.label :address_number_3, "新しいお届け先" %>
   </div>
   
   <div>

@@ -25,7 +25,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    #@order=Order.find(params[:id])
+    @order=Order.find(params[:id])
     #@order.postage =800
   end
 
@@ -36,31 +36,29 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items
     @order = Order.new(order_params)
     @order.postage = 800
-    @total = @cart_items.inject(0) { |sum, item| sum + item.sub_total }
+    @total = @cart_items.inject(0) { |sum, item| sum + item.subtotal }
     @total_price = @order.postage + @total
-
-    if params[:order][:address] == "1"
-      @order.post_code = current_.postcode
+  if params[:order][:address_number] == "1"
+      @order.postcode = current_customer.postcode
       @order.address = current_customer.address
-      @order.name = current_customer.last_name + current.first_name
-      
-      
-    elsif params[:order][:address] == "2"
-      shipping = Shipping.find(params[:order][:delivery_id])
+      @order.name = current_customer.last_name + current_customer.first_name
+
+  elsif params[:order][:address_number] == "2"
+      shipping = Shipping.find(params[:order][:shipping_id])
       @order.postcode = shipping.postcode
       @order.address = shipping.address
-      @order.name = shipping.name
-    end
-     
+      @order.name = shiping.name
+  end 
   end
 
   def index
-    @order = Order.all
+    @orders_all = Order.page(params[:page])
+    @orders = current_customer.orders
   end
   
   
   private
   def   order_params
-    params.require(:order).permit(:name, :address, :total_price, :postage, :payment_method,:post_code)
+    params.require(:order).permit(:name, :address, :total_price, :postage, :payment_method,:postcode)
   end
 end
