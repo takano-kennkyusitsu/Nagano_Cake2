@@ -1,5 +1,12 @@
-<h4><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</h4>
-  <table class="table table-hover table-inverse">
+<main>
+  <table class="customers">
+    <thead class="thead text-center">
+      <tr>
+        <th><%= @customer.first_name %><%= @customer.last_name %>さんの会員詳細</th>
+      </tr>
+    </thead>
+  </table>  
+  <table class="customers">
     <tr>
       <th>会員ID</th>
       <th><%= @customer.id %></th>
@@ -39,5 +46,10 @@
       </th>
     </tr>  
   </table>
-  <%= link_to "編集する", edit_admin_customer_path, class: 'btn btn-success' %>
-  <%= link_to "注文履歴一覧を見る", admin_top_path, class: 'btn btn-primary' %>
+  <table class="links">
+    <tr>
+      <td><%= link_to "編集する", edit_admin_customer_path, class: 'button' %></td>
+      <td><%= link_to "注文履歴　一覧を見る", admin_top_path, class: 'button' %></td>
+    </tr>
+  </table>
+</main>  
