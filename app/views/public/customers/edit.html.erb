@@ -1,40 +1,47 @@
-<div class="container">
-  <div class="row">
-    <h3 class="p-3">会員情報編集</h3>
+<main>
+<div class="toumei">
+<div class="container mt-5">
+  <div class="row mb-4">
+    <div class="col-3 offset-1 text-center">
+      <h3 class="box">会員情報編集</h3>
+    </div>
+  </div>
      <%= form_with model: @customer, url: customers_path, method: :patch do |f| %>
-       <div class="form_group" style="display: flex">
-       <div class="col-md-2">氏名</div>
-       <div class="col-md-2"><%=f.text_field :first_name %></div>
-       <div class="col-md-2"><%=f.text_field :last_name %></div>
+       <div class="form_group d-flex">
+       <label class="col-md-2 col-form-label">氏名</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :first_name %></div>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :last_name %></div>
        </div>
        <div class="form_group" style="display: flex">
-       <div class="col-md-2">フリガナ</div>
-       <div class="col-md-2"><%=f.text_field :first_name_kana %></div>
-       <div class="col-md-2"><%=f.text_field :last_name_kana %></div>
+       <label class="col-md-2 col-form-label">フリガナ</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :first_name_kana %></div>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :last_name_kana %></div>
        </div>
        <div class="form_group" style="display: flex">
-       <div class="col-md-2">郵便番号</div>
-       <div class="col-md-2"><%=f.text_field :postcode %></div>
+       <label class="col-md-2 col-form-label">郵便番号</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :postcode %></div>
        </div>
        <div class="form_group" style="display: flex">
-       <div class="col-md-2">住所</div>
-       <div class="col-md-2"><%=f.text_field :address %></div>
+       <label class="col-md-2 col-form-label">住所</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :address %></div>
        </div>
        <div class="form_group" style="display: flex">
-       <div class="col-md-2">電話番号</div>
-       <div class="col-md-2"><%=f.text_field :tel %></div>
+       <label class="col-md-2 col-form-label">電話番号</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :tel %></div>
        </div>
        <div class="form_group" style="display: flex">
-       <div class="col-md-2">メールアドレス</div>
-       <div class="col-md-2"><%=f.text_field :email %></div>
+       <label class="col-md-2 col-form-label">メールアドレス</label>
+       <div class="col-md-2 form-control-plaintext ml-5"><%=f.text_field :email %></div>
        </div>
 
-  	   <div class="form-group" style="display: flex">
-     <%= f.submit"編集内容を保存",class: "btn btn-success" %>
-       </div>
-       <div class="form-group" style="display: flex">
-     <%= link_to"退会する",customers_unsubscribe_path, class: "btn btn-danger" %>
-       </div>
+     <div class="row mt-4 ml-4">
+       <p class="col-2 offset-2"><%= f.submit"編集内容を保存",class: "button" %></P>
+
+      <p class="col-2 offset-1">
+     <%= link_to"退会する",customers_unsubscribe_path, class: "button" %>
+      </p>
        <% end %>
        </div>
-         </div>
+       </div>
+     </div>
+     </main>

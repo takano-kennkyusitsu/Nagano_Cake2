@@ -1,49 +1,55 @@
-<div class="container">
-  <div class="row">
-    <h2 class="p-3">マイページ</h2>
+<main>
+<div class="toumei">
+<div class="container mt-5">
+  <div class="row mb-4">
+  <div class="col-4 offset-1">
+    <h3 class="box ml-5 text-center">マイページ</h3>
+  </div>
  	</div>
+ 	  <div class="row">
   	 <div class="form-group" style="display: flex">
-   <h4><strong>登録情報</strong></h4>
-   <%= link_to"編集する", edit_customers_path,class: "btn btn-success" %>
+       <h4><strong>登録情報</strong></h4>
+       <p class="ml-5"><%= link_to"編集する", edit_customers_path,class: "button" %></p>
      </div>
-     <table border="1">
+    </div>
+     <table class="table table-bordered">
      	 <tbody>
           <tr>
-			<td>氏名</td>
-			<td><%= @customer.first_name %> <%=@customer.last_name %></td>
+			      <td class="bg-light">氏名</td>
+			      <td class="bg-white"><%= @customer.first_name %> <%=@customer.last_name %></td>
           </tr>
-
 					<tr>
-						<td>カナ</td>
-   					<td><%= @customer.first_name_kana %> <%=@customer.last_name_kana %></td>
+						<td class="bg-light">カナ</td>
+   					<td class="bg-white"><%= @customer.first_name_kana %> <%=@customer.last_name_kana %></td>
 					</tr>
 					<tr>
-						<td>郵便番号</td>
-						<td><%= @customer.postcode %></td>
+						<td class="bg-light">郵便番号</td>
+						<td class="bg-white"><%= @customer.postcode %></td>
 					</tr>
 					<tr>
-						<td>住所</td>
-						<td><%= @customer.address %></td>
+						<td class="bg-light">住所</td>
+						<td class="bg-white"><%= @customer.address %></td>
 					</tr>
 					<tr>
-						<td>電場番号</td>
-						<td><%= @customer.tel %></td>
+						<td class="bg-light">電場番号</td>
+						<td class="bg-white"><%= @customer.tel %></td>
 					</tr>
 					<tr>
-						<td>メールアドレス</td>
-						<td><%= @customer.email %></td>
+						<td class="bg-light">メールアドレス</td>
+						<td class="bg-white"><%= @customer.email %></td>
 					</tr>
-			 </tbody>
-		</table>
+			  </tbody>
+		  </table>
 
 
   	 <div class="form-group" style="display: flex">
    <h4><strong>配送先</strong></h4>
-   <%= link_to"一覧を見る", shippings_path,class: "btn btn-primary" %>
+   <p class="ml-5"><%= link_to"一覧を見る", shippings_path,class: "button" %></p>
      </div>
      <div class="form-group" style="display: flex">
    <h4><strong>注文履歴</strong></h4>
-   <%= link_to"一覧を見る", orders_path,class: "btn btn-primary" %>
+   <p class="ml-5"><%= link_to"一覧を見る", orders_path,class: "button" %></p>
      </div>
 </div>
-
+</div>
+</main>
