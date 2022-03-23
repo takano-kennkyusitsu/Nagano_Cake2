@@ -1,3 +1,26 @@
 // Place all the styles related to the admin/genres controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.form {
+  margin-left: 40px;
+  padding-top: 40px;
+}
+
+h5 {
+  margin-right: 50px;
+  margin-left: 30px;
+}
+
+.genres {
+  width: 400px;
+  margin: 40px;
+  border-spacing: 2px;
+}
+
+.genres tr {
+  height: 60px;
+  border-bottom: 1px solid #24140e;
+}
+

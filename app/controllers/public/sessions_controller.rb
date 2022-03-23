@@ -29,6 +29,7 @@ class Public::SessionsController < Devise::SessionsController
   # end
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   # protected
 =======
 
@@ -36,12 +37,19 @@ class Public::SessionsController < Devise::SessionsController
 
 >>>>>>> a9f127f2230d12d40d4d8912e4cb5c86dabd6cce
 =======
+=======
+  # protected
+
+=======
+>>>>>>> origin/develop
+>>>>>>> 00d783d25cd843de8d141a4cbe24ef6a8e9dc14f
   # protected
 >>>>>>> 02ea8e19fc7b6a9c537eff53ddc7da7e93fcf8f2
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+<<<<<<< HEAD
 <<<<<<< HEAD
 end
 
@@ -54,10 +62,16 @@ end
 
 
 
+=======
+>>>>>>> 00d783d25cd843de8d141a4cbe24ef6a8e9dc14f
+
+end
 
 
 
-
+<<<<<<< HEAD
 =======
 end
 >>>>>>> a9f127f2230d12d40d4d8912e4cb5c86dabd6cce
+=======
+>>>>>>> 00d783d25cd843de8d141a4cbe24ef6a8e9dc14f

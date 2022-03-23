@@ -1,6 +1,14 @@
-<h4><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</h4>
+<main>
+  <table class="customers">
+    <thead class="thead text-center">
+      <tr>
+        <th><%= @customer.first_name %><%= @customer.last_name %>さんの会員情報編集</th>
+      </tr>
+    </thead>
+  </table>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-  <table>
+  <table class="customer-edit">
+    <tbody>
     <tr>
       <th><%= f.label "会員ID" %></th>
       <th><%= @customer.id %></th>
@@ -37,7 +45,15 @@
     	  <%= f.radio_button :is_deleted, true %>有効
         <%= f.radio_button :is_deleted, false %>退会
       </th>
-    </tr>      
+    </tr>
+    </tbody>
   </table>
-  <%= f.submit '変更を保存', class: 'btn btn-success' %>
-  <% end %>  
+  <table class="customer-edit">
+    <thead class="text-center">
+      <tr>
+        <th><%= f.submit '変更を保存', class: 'button' %></th>
+      </tr>
+    </thead>
+  </table>
+  <% end %> 
+</main>  
