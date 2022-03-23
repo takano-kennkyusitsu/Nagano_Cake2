@@ -1,22 +1,24 @@
 <main>
-  <table class="genres">
-    <thead class="thead">
-      <tr>
-        <th class="text-center">ジャンル編集</th>
-      </tr>  
-    </thead>
-  </table>
-  <div class="form">
-    <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
-    <table>
-      <tr>
-        <td><h5>ジャンル名</h5></td>
-        <td>
-          <%= f.text_field :name %>
-          <%= f.submit '変更を保存', class: 'button' %>
-        </td>
-      </tr>
+  <div class="toumei">
+    <table class="genres">
+      <thead class="thead">
+        <tr>
+          <th class="text-center">ジャンル編集</th>
+        </tr>  
+      </thead>
     </table>
-    <% end %> 
+    <div class="form">
+      <%= form_with model: @genre, url: admin_genre_path(@genre.id), method: :patch do |f| %>
+      <table>
+        <tr>
+          <td><h5>ジャンル名</h5></td>
+          <td>
+            <%= f.text_field :name %>
+            <%= f.submit '変更を保存', class: 'button' %>
+          </td>
+        </tr>
+      </table>
+      <% end %> 
+    </div>
   </div>
 </main>  
