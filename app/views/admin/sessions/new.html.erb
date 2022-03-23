@@ -10,7 +10,7 @@
                 <%= f.label :メールアドレス %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
               </div>
-    
+
               <div class="field">
                 <%= f.label :パスワード　　%>
                 <%= f.password_field :password, autocomplete: "current-password" %>
@@ -19,7 +19,7 @@
                 <%= f.submit "ログイン", class: "button" %>
               </div>
             <% end %>
-    
+
           <%= render "admin/shared/links" %>
           </div>
         </div>
