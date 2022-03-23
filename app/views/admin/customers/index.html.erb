@@ -1,4 +1,4 @@
-<main> 
+<main>
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -24,17 +24,17 @@
                 </td>
                 <td><%= customer.email %></td>
                 <td>
-                  <% if customer.is_deleted == true %>
+                  <% if customer.is_deleted == false %>
                     <p class="text-success font-weight-bold">有効</p>
                   <% else %>
                     <p class="text-secondary font-weight-bold">退会</p>
                   <% end %>
                 </td>
-              </tr> 
+              </tr>
             <% end %>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-</main> 
+</main>

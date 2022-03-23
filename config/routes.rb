@@ -34,7 +34,7 @@ namespace :admin do
  end
 
  scope module: :public do
- get '/' => 'homes#top'
+ root to: 'homes#top'
  get '/about' => 'homes#about'
  resources :shippings, only: [:create, :edit, :index, :update, :destroy]
  delete 'cart_items/destroy_all'
