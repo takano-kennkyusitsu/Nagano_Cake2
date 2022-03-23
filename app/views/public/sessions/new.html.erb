@@ -1,3 +1,4 @@
+<main>
 <div class='container mt-5'>
   <div class='row ml-5 mb-4'>
     <h4 class="log_in_box">ログイン</h4>
@@ -17,6 +18,7 @@
       <div class="col-sm-8">
       <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control"%>
       </div>
+    </div>
 
     <div class="row mb-4">
       <label for="inputPassword3" class="col-sm-2 col-form-label offset-2">パスワード</label>
@@ -33,18 +35,14 @@
     </div>
   <% end %>
   <div class="row">
-<<<<<<< HEAD
-    <p class='col-5 offset-1 log_in_box'>会員登録がお済みでない方</p>
-
-
-=======
-    <p class='col-5 offset-1 log_in_box'>会員登録がお済みでない方</p><br>
+<p class='col-5 offset-1 log_in_box'>会員登録がお済みでない方</p><br>
   </div>
   <div class="row">
     <p class='col-5 offset-4'><%= render "public/shared/links" %></p>
->>>>>>> a9f127f2230d12d40d4d8912e4cb5c86dabd6cce
-  </div>
+
  </div>
+ </div>
+ </main>
 
 
 
