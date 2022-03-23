@@ -12,9 +12,9 @@
 <%= @order.each do |order| %>
   <tbody>
     <tr><%= order.created_at%></tr>
-    <tr><%= oder.name%></tr>
-    <tr><%#= oder.%></tr>
-    <tr><%#=order.status %></tr>
+    <tr><%= order.name%></tr>
+    <tr><%= order.order_details.all.quantity%></tr>
+    <tr><%=order.status %></tr>
   </tbody>
 
 　　　<%=@order.name%>
