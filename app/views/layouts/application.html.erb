@@ -20,69 +20,69 @@
           <%= link_to '/', class: 'navbar-brand' do %><h2 class="icon logo">Nagano Cake</h2><% end %>
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
-              <li>
+              <li class="link">
                 <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">マイページ</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to products_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">商品一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to cart_items_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">カート</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to destroy_customer_session_path, class: 'nav-link text-light', method: :delete do %>
                   <h6 class="icon">ログアウト</h6>
                 <% end %>
               </li>
             <% elsif admin_signed_in? %>
-              <li>
+              <li class="link">
                 <%= link_to admin_products_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">商品一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">会員一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to '/admin', class: 'nav-link text-light' do %>
                   <h6 class="icon">注文履歴一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">ジャンル一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to destroy_admin_session_path, class: 'nav-link text-light', method: :delete do %>
                   <h6 class="icon">ログアウト</h6>
                 <% end %>
               </li>
             <% else %>
-              <li>
+              <li class="link">
                 <%= link_to about_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">About</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to products_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">商品一覧</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">新規登録</h6>
                 <% end %>
               </li>
-              <li>
+              <li class="link">
                 <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">ログイン</h6>
                 <% end %>
