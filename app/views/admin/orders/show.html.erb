@@ -1,9 +1,9 @@
+<main>
 <div>
   <table>
     <tr>
       <td>購入者</td>
-      <th> <%= link_to admin_customer_path(@order) do %></th>
-      <% end %>
+      <th> <%= link_to @order.customer.first_name + @order.customer.last_name,admin_customer_path(@order) %></th>
     </tr>
     <tr>
       <td>注文日</td>
@@ -20,7 +20,9 @@
     </tr>
     <tr>
       <td>ステータス</td>
-      <th><%= @order.status %></th>
+      <%= form_with model: @order, url:admin_order_path do |f| %>
+          <th><%= f.select :status, Order.statuses.keys.to_a, {} %><%= f.submit "更新", class: "button" %></th>
+        <% end %> 
     </tr>
 </table>
 </div>
@@ -43,8 +45,11 @@
           <td><%= order_detail.product.in_tax_price %></td>
           <td><%= order_detail.quantity %></td>
           <td><%= order_detail.sub_total %></td>
-          <td></td>
           
+      
+        <%= form_with model: order_detail, url:admin_order_detail_path do |f| %>
+          <td><%= f.select :making_status, OrderDetail.making_statuses.keys.to_a, {} %><%= f.submit "更新", class: "button" %></td>
+        <% end %> 
         </tr>
           <% end %>
     </tbody>
@@ -67,4 +72,6 @@
         <th><%= @total_price.to_s(:delimited) %></th>
   </table>
 </div>
+
+</main>
   

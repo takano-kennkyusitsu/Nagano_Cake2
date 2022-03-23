@@ -11,7 +11,7 @@
       <th scope="col">注文詳細</th>
     </tr>
   </thead>
-
+  <% p @orders %>
   <tbody>
           <% @orders.each do |order| %>
             <tr>
@@ -23,7 +23,7 @@
     					  <% end %>
               </td>
               <td><%= order.total_price.to_s(:delimited) %></td>
-              <td><%= order.order_status %></td>
+              <td><%= order.status %></td>
               <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
             </tr>
           <% end %>

@@ -11,14 +11,14 @@ Rails.application.routes.draw do
 #devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   #sessions: "admin/sessions"
 #}
-namespace :admin do
-  get 'orders/:order_id/order_details/:id' => 'order_details#update'
- end
+
 
 
  namespace :admin do
 
-  resources :orders, only: [:show, :update]
+  resources :orders, only: [:show, :update] 
+  
+  resources :order_details,only: [:update]
  end
  namespace :admin do
   resources :customers, only: [:show, :index, :edit, :update]
