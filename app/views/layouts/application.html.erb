@@ -20,6 +20,7 @@
           <%= link_to '/', class: 'navbar-brand' do %><h2 class="icon logo">Nagano Cake</h2><% end %>
           <ul class="navbar-nav ml-auto">
             <% if customer_signed_in? %>
+             <li class="icon mx-5 mt-2">ようこそ、<%= current_customer.first_name %>さん！</li>
               <li class="link">
                 <%= link_to customers_my_page_path, class: 'nav-link text-light' do %>
                   <h6 class="icon">マイページ</h6>

@@ -35,6 +35,9 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+
+
+
  def customer_state
  ## 【処理内容1】 入力されたemailからアカウントを1件取得
  @customer = Customer.find_by(email: params[:customer][:email])
@@ -48,8 +51,6 @@ class Public::SessionsController < Devise::SessionsController
  end
  end
 end
-
-
 
 
 
