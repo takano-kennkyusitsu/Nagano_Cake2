@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
-   
+
   end
  def create
    @order = current_customer.orders.new(order_params)
@@ -14,6 +14,7 @@ class Public::OrdersController < ApplicationController
         @order_items.quantity = cart_item.quantity
         @order_items.save
          current_customer.cart_items.destroy_all
+         redirect_to  orders_thank_you_path
      end
   end
 
@@ -38,38 +39,38 @@ class Public::OrdersController < ApplicationController
 
 
 
-  end 
-  
-  
-  
   end
-  
+
+
+
+
+
    def index
     @orders_all = Order.page(params[:page])
     @orders = current_customer.orders
    end
-  
+
 
    def show
     @order = Order.find(params[:id])
     @order.postage  = 800
     @order_details = @order.order_details
-    
+
     @total = 0
     @order_details.each do |order_detail|
     @total += order_detail.sub_total
     end
-    
-    @total_price = 0 
+
+    @total_price = 0
     @total_price = @order.postage + @total
    end
 
   def thank_you
   end
 
- 
-  
-  
+
+
+
   private
   def   order_params
     params.require(:order).permit(:name, :address, :total_price, :postage, :payment_method,:postcode)
