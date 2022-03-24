@@ -18,9 +18,9 @@ class Public::OrdersController < ApplicationController
       shipping = Shipping.find(params[:order][:shipping_id])
       @order.postcode = shipping.postcode
       @order.address = shipping.address
-      @order.name = shiping.name
+      @order.name = shipping.name
   end
-end
+  end
 
 
   def create
@@ -35,7 +35,7 @@ end
         @order_items.save
          current_customer.cart_items.destroy_all
      end
-   end
+  end
 
    def show
     @order=current_customer.orders.find(params[:id])

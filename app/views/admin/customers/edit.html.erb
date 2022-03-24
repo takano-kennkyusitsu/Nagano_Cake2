@@ -1,4 +1,3 @@
-<main>
   <table class="customers">
     <thead class="thead text-center">
       <tr>
@@ -7,8 +6,7 @@
     </thead>
   </table>
   <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch do |f| %>
-  <table class="customer-edit">
-    <tbody>
+  <table>
     <tr>
       <th><%= f.label "会員ID" %></th>
       <th><%= @customer.id %></th>
@@ -46,15 +44,6 @@
         <%= f.radio_button :is_deleted, false %>有効
       </th>
     </tr>
-    </tbody>
   </table>
-  <table class="customer-edit">
-    <thead class="text-center">
-      <tr>
-        <th><%= f.submit '変更を保存', class: 'button' %></th>
-      </tr>
-    </thead>
-  </table>
-  <% end %> 
-</main>  
-
+  <%= f.submit '変更を保存', class: 'btn btn-success' %>
+  <% end %>
