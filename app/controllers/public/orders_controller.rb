@@ -34,6 +34,10 @@ class Public::OrdersController < ApplicationController
       @order.address = shipping.address
       @order.name = shipping.name
 
+  end
+
+
+
   end 
   
   
