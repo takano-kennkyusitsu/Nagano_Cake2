@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
-  end
+
 
  def create
    @order = current_customer.orders.new(order_params)
@@ -14,6 +14,7 @@ class Public::OrdersController < ApplicationController
         @order_items.quantity = cart_item.quantity
         @order_items.save
          current_customer.cart_items.destroy_all
+         redirect_to  orders_thank_you_path
      end
   end
 
@@ -34,6 +35,14 @@ class Public::OrdersController < ApplicationController
       @order.name = shipping.name
   end
  end
+
+
+
+
+
+  end
+
+
 
 
 
