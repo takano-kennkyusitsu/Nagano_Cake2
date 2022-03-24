@@ -5,6 +5,12 @@ class Public::CartItemsController < ApplicationController
   end
 
   def update
+    @cart_item = CartItem.find(params[:id])
+    if @cart_item.update(cart_item_params)
+      flash[:notice] = "#{@cart_item.product.name}の個数を変更しました。"
+      redirect_to cart_items_path
+    else
+    end
   end
 
   def destroy_all
