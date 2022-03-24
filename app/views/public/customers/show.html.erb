@@ -1,5 +1,6 @@
 <main>
 <div class="toumei">
+
 <div class="container">
   <div class="row">
   <h2 class="p-6"><span class="header">マイページ</span></h2>
@@ -17,11 +18,11 @@
      	 <tbody>
           <tr>
 					  <td class="common">氏名</td>
-						<td><%= @customer.first_name %> <%=@customer.last_name %></td>
+            <td><%= @customer.first_name %> <%=@customer.last_name %></td>
           </tr>
-
 					<tr>
-						<td class="common">カナ</td>
+
+      		<td class="common">カナ</td>
    					<td><%= @customer.first_name_kana %> <%=@customer.last_name_kana %></td>
 					</tr>
 					<tr>
@@ -60,3 +61,4 @@
 					</div>
 						</div>
 </main>
+
