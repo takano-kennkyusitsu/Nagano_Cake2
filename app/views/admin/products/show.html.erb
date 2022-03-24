@@ -1,19 +1,48 @@
-
-<h3>商品詳細</h3>
-
-<div><%=image_tag @product.get_image ,size: "200x150"%></div>
-
-<div>商品名<%= @product.name %></div>
-<div>商品説明<%= @product.about %></div>
-<div>ジャンル<%= @product.genre.name %></div>
-<div>税込価格（税抜価格)<%= @product.in_tax_price.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</div>
-<div>販売ステータス</div>
-<% if @product.is_active == true %>
-                <p class="text-success font-weight-bold">販売中</p>
-              <% else %>
-                <p class="text-secondary font-weight-bold">販売停止中</p>
-              <% end %>
-              
- <div><%= link_to "編集する",edit_admin_product_path(@product) %></div>
-
-
+<main>
+  <div class="toumei">
+    <table class="products">
+      <thead class="thead text-center">
+        <tr>
+          <th>商品詳細</th>
+        </tr>
+      </thead>
+    </table>
+    
+    <div class="product-image"><%=image_tag @product.get_image ,size: "400x300"%></div>
+    
+     <table class="customers text-center">
+    <tr>
+      <th>商品名</th>
+      <th><%= @product.name %></th>
+    </tr>
+    <tr>
+      <th>商品説明</th>
+      <th><%= @product.about %></th>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <th><%= @product.genre.name %></th>
+    </tr>
+    <tr>
+      <th>税込価格（税抜価格)</th>
+      <th><%= @product.in_tax_price.to_s(:delimited) %>　(<%= @product.price.to_s(:delimited) %>)円</th>
+    </tr>
+  
+    <tr>
+      <th>販売ステータス</th>
+      <th>
+        <% if @product.is_active == true %>
+          <p class="text-success font-weight-bold">販売中</p>
+        <% else %>
+          <p class="text-secondary font-weight-bold">販売停止中</p>
+        <% end %>
+      </th>
+    </tr>
+  </table>
+  <table class="links text-center">
+    <tr>
+      <td><%= link_to "編集する", edit_admin_product_path, class: 'button mt-3' %></td>
+    </tr>
+  </table>
+  </div>
+</main>

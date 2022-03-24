@@ -1,3 +1,36 @@
 // Place all the styles related to the admin/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.thead {
+  background-image: url(header1.jpeg);
+  background-size: cover;
+  width: 750px;
+}
+
+.thead tr {
+  color: #e6b422;
+}
+
+.products {
+  margin: auto;
+  width: 750px;
+  border-spacing: 2px;
+}
+
+.products tr {
+  height: 60px;
+  border-bottom: 1px solid #24140e;
+}
+
+.product-image {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.product-edit {
+  margin: auto;
+  width: 750px;
+  border-spacing: 10px;
+}
