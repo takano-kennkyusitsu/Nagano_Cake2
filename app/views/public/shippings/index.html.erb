@@ -1,54 +1,55 @@
-<div class='container mt-5'>
-  <div class='row ml-5 mb-4'>
-    <h4 class="box">配送先登録/一覧</h4>
-  </div>
-<%= form_with model: @shipping do |f| %>
-    <div class="row mb-2">
-      <label class="col-sm-4 col-form-label">郵便番号(ハイフンなし)</label>
-      <div class="col-sm-8">
-      <%= f.text_field :postcode, autofocus: true, autocomplete: "email",class:"form-control"%>
+<main>
+  <div class="toumei">
+    <div class='container mt-5'>
+      <div class='row mb-5'>
+        <table class="shippings">
+          <thead class="thead text-center">
+            <tr>
+              <th>配送先登録/一覧</th>
+            </tr>
+          </thead>
+        </table>
       </div>
-    </div>
-    <div class="row mb-2">
-      <label class="col-sm-4 col-form-label">住所</label>
-      <div class="col-sm-8">
-      <%= f.text_field :address, autocomplete: "current-password",class:"form-control" %>
-      </div>
+      <%= form_with model: @shipping do |f| %>
+        <div class="row mb-5">
+          <label class="col-sm-4 col-form-label">郵便番号(ハイフンなし)</label>
+          <div class="col-sm-8">
+          <%= f.text_field :postcode, autofocus: true, autocomplete: "email", class:"form-control" %>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <label class="col-sm-4 col-form-label">住所</label>
+          <div class="col-sm-8">
+          <%= f.text_field :address, autocomplete: "current-password",class:"form-control" %>
+          </div>
+        </div>
+        <div class="row mb-5">
+          <label class="col-sm-4 col-form-label">宛名</label>
+          <div class="col-sm-8 mb-5">
+            <%= f.text_field :name, autocomplete: "current-password",class:"form-control" %>
+          </div>
+           <%= f.submit "新規登録", class:"button links" %>
+        </div>
+      <% end %>
+      <table class="shippings">
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+        </tr>
+        <% @shippings.each do |shipping| %>
+          <tr>
+            <td><%=shipping.postcode %></td>
+            <td><%=shipping.address %></td>
+            <td><%=shipping.name %></td>
+            <td>
+              <span><%=link_to "編集する",edit_shipping_path(shipping),class:"button" %></span>
+              <span><%=link_to "削除する",shipping_path(shipping),method: :delete,class:"button" %></span>
+            </td>
+          </tr>  
+        <% end %>
+      </table>
     </div>
 
-    <div class="row mb-5">
-      <label class="col-sm-4 col-form-label">宛名</label>
-      <div class="col-sm-8">
-      <%= f.text_field :name, autocomplete: "current-password",class:"form-control" %>
-       <%= f.submit "新規登録", class:"btn btn-success"%>
-      </div>
-    </div>
-  <% end %>
-  <table class="table table-bordered">
-    <tr>
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <th></th>
-    </tr>
-    <tr>
-
-
-  <% @shippings.each do |shipping| %>
-     <tr>
-      <th><%=shipping.postcode %></td>
-      <td><%=shipping.address %></td>
-      <td><%=shipping.name %></td>
-      <td><span><%=link_to "編集する",edit_shipping_path(shipping),class:"btn btn-success" %></span>
-          <span><%=link_to "削除する",shipping_path(shipping),method: :delete,class:"btn btn-danger" %></span>
-      </td>
-    </tr>
-  <% end %>
   </div>
-
-  </table>
-
-
-  </div>
-
-
+</main>

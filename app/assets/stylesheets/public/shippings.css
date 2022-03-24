@@ -1,0 +1,18 @@
+.thead {
+  background-image: url(header1.jpeg);
+  background-size: cover;
+  width: 750px; }
+
+.thead tr {
+  color: #e6b422; }
+
+.shippings {
+  margin: auto;
+  width: 750px;
+  border-spacing: 2px; }
+
+.shippings tr {
+  height: 60px;
+  border-bottom: 1px solid #24140e; }
+
+/*# sourceMappingURL=shippings.css.map */
