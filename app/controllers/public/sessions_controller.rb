@@ -15,17 +15,24 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/develop
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+<<<<<<< HEAD
 
 end
 
 
 
 
+=======
+end
+>>>>>>> origin/develop

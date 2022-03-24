@@ -19,8 +19,11 @@ class Public::OrdersController < ApplicationController
       @order.postcode = shipping.postcode
       @order.address = shipping.address
       @order.name = shipping.name
+<<<<<<< HEAD
+=======
   end
-end
+>>>>>>> origin/develop
+  end
 
 
   def create
@@ -35,7 +38,7 @@ end
         @order_items.save
          current_customer.cart_items.destroy_all
      end
-   end
+  end
 
    def show
     @order=current_customer.orders.find(params[:id])
