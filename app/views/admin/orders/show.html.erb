@@ -1,6 +1,11 @@
 <main>
-<div>
-  <table>
+  
+<div class="container" >
+<div class="row">
+<div class="col-md-5">
+  
+  <h3>注文履歴詳細</h3>
+  <table >
     <tr>
       <td>購入者</td>
       <th> <%= link_to @order.customer.first_name + @order.customer.last_name,admin_customer_path(@order) %></th>
@@ -24,10 +29,16 @@
           <th><%= f.select :status, Order.statuses.keys.to_a, {} %><%= f.submit "更新", class: "button" %></th>
         <% end %> 
     </tr>
-</table>
+  </table>
 </div>
-<div>
-  <table>
+</div>
+
+
+
+
+<div class="row">
+<div class="col-md-9">  
+  <table class="design01">
     <thead>
       <tr>
           <th>商品</th>
@@ -35,7 +46,6 @@
           <th>個数</th>
           <th>小計</th>
           <th>製作ステータス</th>
-          <th></th>
       </tr>
     </thead>
     <tbody>
@@ -56,7 +66,8 @@
   </table>
 </div>
 
-<div>
+
+<div class="col-md-3">  
     <h6>請求情報</h6>
   <table>
       <tr>
@@ -72,6 +83,7 @@
         <th><%= @total_price.to_s(:delimited) %></th>
   </table>
 </div>
-
+</div> 
+</div>
 </main>
   

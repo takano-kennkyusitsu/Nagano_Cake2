@@ -1,6 +1,10 @@
+<main>
+<div class="container" >
+<div class="row">
+   <div class ="col-lg-8">
 <h3>注文情報確認</h3>
 <div>
-  <table>
+  <table class="design01 ">
     <thead>
     <tr>
       <th>商品名</th>
@@ -22,10 +26,10 @@
     </tbody>
   </table>
 </div>
-
-
+</div>
+ <div class ="col-lg-2">
 <div>
-  <table>
+   <table class="design01 ">
     <tr>
       <th>送料</th>
       <td><%= @order.postage %></td>
@@ -39,6 +43,7 @@
       <td><%= @total_price.to_s(:delimited)  %></td>
     </tr>
   </table>
+</div>
 </div>
 
 
@@ -65,3 +70,7 @@
   <% end %>
 </div>
 </div>
+</div>
+</div>
+
+</main>
