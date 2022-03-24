@@ -58,8 +58,7 @@
           <td><%= order_detail.quantity %></td>
           <td><%= order_detail.sub_total %></td>
           
-      
-        <%= form_with model: order_detail, url:admin_order_detail_path do |f| %>
+        <%= form_with(model:order_detail, url:admin_order_detail_path(order_detail), method: :PATCH) do |f| %>
           <td><%= f.select :making_status, OrderDetail.making_statuses.keys.to_a, {} %><%= f.submit "更新", class: "button" %></td>
         <% end %> 
         </tr>

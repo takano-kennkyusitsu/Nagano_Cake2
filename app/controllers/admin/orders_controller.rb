@@ -34,10 +34,4 @@ class Admin::OrdersController < ApplicationController
     params.require(:order).permit(:status)
   end
 
-
-
-  def update
-
-
-  end
 end
