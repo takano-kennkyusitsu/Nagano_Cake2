@@ -10,8 +10,8 @@
     </tr>
     <tr>
       <td>配送先</td>
-      <th><%= @oeder.postcode %><br>
-          <%= @oeder.address %></th>
+      <th><%= @order.postcode %><br>
+          <%= @order.address %></th>
     </tr>
     <tr>
       <td>支払方法</td>
@@ -19,7 +19,7 @@
     </tr>
     <tr>
       <td>ステータス</td>
-      <th><%= @orders.status %></th>
+      <th><%= @order.status %></th>
     </tr>
 </table>
 <div>
@@ -62,4 +62,3 @@
         <th><%= @total_price.to_s(:delimited) %></th>
   </table>
 </div>
-  
