@@ -13,6 +13,7 @@ class Admin::OrdersController < ApplicationController
     @total_price = @order.postage + @total
     
 
+
     end
   
   
