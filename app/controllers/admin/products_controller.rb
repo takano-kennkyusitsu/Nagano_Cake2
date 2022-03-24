@@ -24,7 +24,7 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @genre = Genre.all
+    @genres = Genre.all
   end
 
   def update
