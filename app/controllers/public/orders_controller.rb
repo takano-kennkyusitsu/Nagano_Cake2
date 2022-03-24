@@ -18,7 +18,7 @@ class Public::OrdersController < ApplicationController
       shipping = Shipping.find(params[:order][:shipping_id])
       @order.postcode = shipping.postcode
       @order.address = shipping.address
-      @order.name = shiping.name
+      @order.name = shipping.name
   end
 end
 
