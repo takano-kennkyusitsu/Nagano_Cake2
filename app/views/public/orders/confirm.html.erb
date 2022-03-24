@@ -1,6 +1,10 @@
+<main>
+<div class="container" >
+<div class="row">
+   <div class ="col-lg-8">
 <h3>注文情報確認</h3>
 <div>
-  <table>
+  <table class="design01 ">
     <thead>
     <tr>
       <th>商品名</th>
@@ -22,13 +26,13 @@
     </tbody>
   </table>
 </div>
-
-
+</div>
+ <div class ="col-lg-2">
 <div>
-  <table>
+   <table class="design01 ">
     <tr>
       <th>送料</th>
-      <td><%= @order.postage%></td>
+      <td><%= @order.postage %></td>
     </tr>
     <tr>
       <th>商品合計</th>
@@ -39,6 +43,7 @@
       <td><%= @total_price.to_s(:delimited)  %></td>
     </tr>
   </table>
+</div>
 </div>
 
 
@@ -61,7 +66,11 @@
     <%= f.hidden_field :payment_method,value: @order.payment_method %>
     <%= f.hidden_field :address,value: @order.address %>
     <%= f.hidden_field :total_price, value: @total + @order.postage %>
-    <%= f.submit "注文確定する", class: 'btn-success' %>
+    <%= f.submit "注文確定する", class: 'button' %>
   <% end %>
 </div>
 </div>
+</div>
+</div>
+
+</main>

@@ -2,6 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.top{
+ background:  rgba(255,255,255,.8);
+ 
+}
+.design01 {
+ width: 100%;
+ text-align: center;
+ border-collapse: collapse;
+ border-spacing: 0;
+}
+.design01 th {
+ padding: 10px;
+ background: #24140e;
+ color: #ffffff;
+ border: solid 1px #ffffff;
+}
+.design01 td {
+ padding: 10px;
+ border: solid 1px #ffffff;
+ background: rgba(255,255,255,.8);
+ border: solid 1px #504946
+}
+
+.contact{
+ background-image: url(3_s.jpeg);
+}
+
+.new-top{
+ margin-left:30px;
+}
+
 .thankyou-links {
   text-align: center;
   padding-top: 50px;

@@ -7,11 +7,13 @@
 <div>商品説明<%= @product.about %></div>
 <div>ジャンル<%= @product.genre.name %></div>
 <div>税込価格（税抜価格)<%= @product.in_tax_price.to_s(:delimited) %>(<%= @product.price.to_s(:delimited) %>)円</div>
-
+<div>販売ステータス</div>
 <% if @product.is_active == true %>
                 <p class="text-success font-weight-bold">販売中</p>
               <% else %>
                 <p class="text-secondary font-weight-bold">販売停止中</p>
               <% end %>
+              
+ <div><%= link_to "編集する",edit_admin_product_path(@product) %></div>
 
 
