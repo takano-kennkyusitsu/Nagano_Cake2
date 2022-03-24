@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
 
-  end
+
  def create
    @order = current_customer.orders.new(order_params)
    @order.save
@@ -28,18 +28,20 @@ class Public::OrdersController < ApplicationController
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
       @order.name = current_customer.first_name + current_customer.last_name
-
   elsif params[:order][:address_number] == "2"
       shipping = Shipping.find(params[:order][:shipping_id])
       @order.postcode = shipping.postcode
       @order.address = shipping.address
       @order.name = shipping.name
+  end
+ end
+
+
+
+
 
   end
 
-
-
-  end
 
 
 
@@ -71,8 +73,11 @@ class Public::OrdersController < ApplicationController
 
 
 
+
   private
+
   def   order_params
     params.require(:order).permit(:name, :address, :total_price, :postage, :payment_method,:postcode)
   end
+
 end
