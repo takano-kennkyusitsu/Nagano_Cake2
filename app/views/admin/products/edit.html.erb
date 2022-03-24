@@ -4,10 +4,10 @@
       <thead class="thead text-center">
         <tr>
           <th class="text-center">商品編集</th>
-        </tr>  
+        </tr>
       </thead>
     </table>
-      <%= form_with model: @product, url: admin_products_path do |f| %>
+      <%= form_with model: @product, url: admin_product_path do |f| %>
         <table class="product-edit text-center">
         <tbody>
         <tr>
@@ -47,5 +47,5 @@
         </thead>
       </table>
     <% end %>
-  </div> 
+  </div>
 </main>
