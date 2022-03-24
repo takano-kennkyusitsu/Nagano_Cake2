@@ -13,7 +13,6 @@ class Admin::OrdersController < ApplicationController
     @total_price = @order.postage + @total
     
 
-
     end
   
   
@@ -33,6 +32,5 @@ class Admin::OrdersController < ApplicationController
   
   def order_params
     params.require(:order).permit(:status)
-
   end
 end

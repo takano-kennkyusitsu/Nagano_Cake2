@@ -1,21 +1,8 @@
 class Public::OrdersController < ApplicationController
   def new
    @order = Order.new
-   
   end
- def create
-   @order = current_customer.orders.new(order_params)
-   @order.save
-   @cart_items = current_customer.cart_items.all
-     @cart_items.each do |cart_item|
-        @order_items = @order.order_details.new
-        @order_items.product_id = cart_item.product.id
-        @order_items.tax_in_price = cart_item.product.in_tax_price
-        @order_items.quantity = cart_item.quantity
-        @order_items.save
-         current_customer.cart_items.destroy_all
-     end
-  end
+
 
   def confirm
     @cart_items = current_customer.cart_items
@@ -33,15 +20,22 @@ class Public::OrdersController < ApplicationController
       @order.postcode = shipping.postcode
       @order.address = shipping.address
       @order.name = shipping.name
-
-  end
-
-
-
   end 
   
   
-  
+  def create
+   @order = current_customer.orders.new(order_params)
+   @order.save
+   @cart_items = current_customer.cart_items.all
+     @cart_items.each do |cart_item|
+        @order_items = @order.order_details.new
+        @order_items.product_id = cart_item.product.id
+        @order_items.tax_in_price = cart_item.product.in_tax_price
+        @order_items.quantity = cart_item.quantity
+        @order_items.save
+         current_customer.cart_items.destroy_all
+     end
+  end
   end
   
    def index
@@ -49,7 +43,6 @@ class Public::OrdersController < ApplicationController
     @orders = current_customer.orders
    end
   
-
    def show
     @order = Order.find(params[:id])
     @order.postage  = 800
