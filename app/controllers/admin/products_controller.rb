@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
     render :new
     end
   end
-  
+
   def index
     @products = Product.page(params[:page])
   end
@@ -30,14 +30,14 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-    #redirect_to admin_products_path
+    redirect_to admin_product_path(@product.id)
     else
     render:edit
     end
   end
-  
+
   private
   def product_params
-    params.require(:product).permit(:genre_id, :name, :about, :image, :price, :is_active)  
+    params.require(:product).permit(:genre_id, :name, :about, :image, :price, :is_active)
   end
 end
