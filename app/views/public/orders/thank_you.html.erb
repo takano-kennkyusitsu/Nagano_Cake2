@@ -1,1 +1,11 @@
-<h3>ご注文ありがとうございました！</h3>
+<main>
+  <div class="toumei">
+    <div class="message-container">
+      <h1 class="text-center">ご注文ありがとうございました！</h1>
+      <div class="thankyou-links">
+        <%= link_to "商品一覧へ", products_path, class: "button" %>
+        <%= link_to "注文履歴一覧へ", orders_path, class: "button" %>
+      </div>
+    </div>
+  </div>
+</main>

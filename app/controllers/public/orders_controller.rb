@@ -33,6 +33,7 @@ class Public::OrdersController < ApplicationController
       @order.postcode = shipping.postcode
       @order.address = shipping.address
       @order.name = shipping.name
+
   end 
   
   
@@ -44,6 +45,7 @@ class Public::OrdersController < ApplicationController
     @orders = current_customer.orders
    end
   
+
    def show
     @order = Order.find(params[:id])
     @order.postage  = 800
