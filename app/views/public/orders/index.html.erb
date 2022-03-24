@@ -1,6 +1,13 @@
 
+<main>
+<div class="contact">
+<div class="container" >
+<div class="row">
 
-<table class="table">
+  <div class="top">
+    <h3>注文履歴一覧</h3>
+  </div>
+  <table class="design01">
   <thead>
     <tr>
       <th scope="col">注文日</th>
@@ -11,6 +18,7 @@
       <th scope="col">注文詳細</th>
     </tr>
   </thead>
+  <% p @orders %>
 
   <tbody>
           <% @orders.each do |order| %>
@@ -23,11 +31,14 @@
     					  <% end %>
               </td>
               <td><%= order.total_price.to_s(:delimited) %></td>
-              <td><%= order.order_status %></td>
-              <td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>
+              <td><%= order.status %></td>
+              <td><%= link_to "表示する", order_path(order), class: "button" %></td>
             </tr>
           <% end %>
           </tbody>
         </table>
  <%= paginate @orders_all %>
-
+ </div>
+ </div>
+ </div>
+</main>

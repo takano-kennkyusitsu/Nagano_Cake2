@@ -1,3 +1,23 @@
 // Place all the styles related to the public/shippings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.thead {
+  background-image: url(header1.jpeg);
+  background-size: cover;
+  width: 750px;
+}
+
+.thead tr {
+  color: #e6b422;
+}
+
+.shippings {
+  margin: auto;
+  width: 750px;
+  border-spacing: 2px;
+}
+
+.shippings tr {
+  height: 60px;
+  border-bottom: 1px solid #24140e;
+}
