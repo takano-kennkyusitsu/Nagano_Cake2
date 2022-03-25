@@ -24,16 +24,22 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
-  def create
-    if cart_item=CartItem.find_by(product_id: params[:cart_item][:product_id])
-      cart_item.quantity += params[:cart_item][:quantity].to_i
-      cart_item.save
-    else
-      cart_item=CartItem.new(cart_item_params)
-      cart_item.save
-    end
-    redirect_to cart_items_path
-  end
+def create
+      if cart_item=CartItem.find_by(product_id: params[:cart_item][:product_id])
+        cart_item.quantity += params[:cart_item][:quantity].to_i
+        cart_item.save
+        redirect_to cart_items_path
+      else
+        cart_item=CartItem.new(cart_item_params)
+        if customer_signed_in?
+          cart_item.customer_id = current_customer.id
+          cart_item.save
+          redirect_to cart_items_path
+        else
+           redirect_to root_path
+        end
+      end
+end
 
   private
 

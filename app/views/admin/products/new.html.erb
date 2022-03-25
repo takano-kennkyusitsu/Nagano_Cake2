@@ -1,28 +1,51 @@
-
-<h3>商品新規登録</h3>
-
-<%= form_with model: @product, url: admin_products_path do |f| %>
-       <div>商品画像 <%= f.file_field :image, accept: "image/*" %><%#= f.file_field :image %></div>
-       <div>
-          <%= f.label :name, "商品名" %>
-          <%= f.text_field :name %>
-       </div>
-       <div>
-          <%= f.label :about, "商品説明" %>
-          <%= f.text_area :about %>
-       </div>
-          <h4>ジャンル<h4>
-          <%= f.collection_select :genre_id, @genres, :id, :name %> 
-       <div> 
-          <%= f.label :about, "税抜価格" %>
-        
-          <%= f.text_field :price %>円
-        </div>
-       <div>
-              
-          <%= f.label :about, "販売ステータス" %>
-    	   <%= f.radio_button :is_active, true %>販売中
-          <%= f.radio_button :is_active, false %>販売停止中
-    	  <%= f.submit '新規登録', class: "btn btn-success" %>
-       </div>
-<% end %>
+<main>
+  <div class="toumei">
+    <table class="products">
+      <thead class="thead text-center">
+        <tr>
+          <th>商品新規登録</th>
+        </tr>
+      </thead>
+    </table>
+      <table class="product-new text-center">
+        <tbody>
+        <%= form_with model: @product, url: admin_products_path do |f| %>
+          <tr>
+            <th><%= f.label :image, "商品画像" %></th>
+             <th><%= f.file_field :image, accept: "image/*" %><%#= f.file_field :image %></th>
+          </tr>
+          <tr>
+             <th>
+                <%= f.label :name, "商品名" %>
+              </th>  
+              <th>
+                <%= f.text_field :name %>
+             </th>
+          </tr>
+          <tr>
+            <th>
+              <%= f.label :about, "商品説明" %>
+            </th> 
+            <th> 
+              <%= f.text_area :about %>
+            </th>
+          </tr>   
+          <tr>
+            <th>ジャンル</th>
+            <th><%= f.collection_select :genre_id, @genres, :id, :name %></th>
+          </tr>   
+          <tr>
+              <th><%= f.label :about, "税抜価格" %></th>
+              <th><%= f.text_field :price %>円</th>
+          </tr>  
+          <tr>
+              <th><%= f.label :about, "販売ステータス" %></th>
+          	  <th><%= f.radio_button :is_active, true %>販売中　<%= f.radio_button :is_active, false %>販売停止中</th>
+              <th></th>
+          	  <th><%= f.submit '新規登録', class: "button" %></th>
+          </tr>   
+        <% end %>
+      </tbody>
+    </table>
+  </div>  
+</main>
