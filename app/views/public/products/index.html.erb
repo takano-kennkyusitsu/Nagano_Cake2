@@ -2,7 +2,7 @@
   <div class="toumei">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <div class="col-sm-12 col-md-12 col-lg-12">
         <table class="customers">
           <thead class="thead text-center">
             <tr>
@@ -22,12 +22,12 @@
           </thead>
         </table>
         </div>
-        <div class="col-10 pl-3">
+        
           <section>
     
             <div class="d-flex flex-wrap">
               <% @products.each do |item| %>
-                <div class="mt-5 mr-3">
+                <div class="mt-5 mr-5 ml-3">
                   <%= link_to product_path(item.id) do %>
                     <%=image_tag item.image, size: "200x100" %><br>
                     <%= item.name %><br>
