@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  def show
+    def show
     @order = Order.find(params[:id])
     @order.postage  = 800
     @order_details = @order.order_details
@@ -14,6 +14,7 @@ class Admin::OrdersController < ApplicationController
 
 
     end
+
 
 
 

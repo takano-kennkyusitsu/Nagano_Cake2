@@ -77,4 +77,20 @@ main {
   text-decoration: none;
   opacity: 0.6;
 }
+.top-header{
+    background-color: #24140e;
+    color: #e6b422;
+    width: 280px;
+    border-spacing: 2px;
+    text-align: center;
+}
+.top-header2{
+    background-color: #24140e;
+    color: #e6b422;
+    width:220px;
+    justify-content: center;
+}
+.registrations,main{
+   justify-content: center;
+  }
 
