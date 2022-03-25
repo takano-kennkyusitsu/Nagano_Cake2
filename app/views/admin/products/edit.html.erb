@@ -24,7 +24,8 @@
         </tr>
         <tr>
           <th><%= f.label "ジャンル" %></th>
-            <th><%= f.collection_select :genre_id, @genres, :id, :name %></th>
+          <th><%= f.collection_select :genre_id, @genres, :id, :name %></th>
+
         </tr>
         <tr>
           <th><%= f.label :about, "税抜価格" %></th>
