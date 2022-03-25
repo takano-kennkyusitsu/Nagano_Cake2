@@ -1,17 +1,18 @@
 <main>
  <div class="toumei">
 <div class='container mt-5'>
-  <div class='row ml-5 mb-4'>
-    <h4 class="box">ログイン</h4>
+  <div class='row'>
+    <table class="customers">
+      <thead class="thead text-center">
+        <tr>
+          <th>ログイン</th>
+        </tr>
+      </thead>
+    </table>
   </div>
 
-
-
-
-
-  <div class= 'row mb-5'>
-    <p class='col-5 offset-1 log_in_box'>会員の方はこちらからログイン</p>
-
+  <div class= 'row mb-5 mt-4'>
+    <p class='col-5 offset-4'>会員の方はこちらからログイン</p>
   </div>
   <%= form_with model: @customer, url: customer_session_path do |f| %>
     <div class="row mb-3">
@@ -36,11 +37,16 @@
     </div>
   <% end %>
   <div class="row">
-<p class='col-5 offset-1 box'>会員登録がお済みでない方</p><br>
+    <table class="customers">
+      <thead class="thead text-center">
+        <tr>
+          <th>会員登録がお済みでない方</th>
+        </tr>
+      </thead>
+    </table>
   </div>
-  <div class="row">
+  <div class="row mt-4">
     <p class='col-5 offset-4'><%= render "public/shared/links" %></p>
-
  </div>
  </div>
  </div>
