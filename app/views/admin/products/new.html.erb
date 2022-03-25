@@ -17,7 +17,7 @@
           <tr>
              <th>
                 <%= f.label :name, "商品名" %>
-              </th>  
+              </th>
               <th>
                 <%= f.text_field :name %>
              </th>
@@ -25,27 +25,28 @@
           <tr>
             <th>
               <%= f.label :about, "商品説明" %>
-            </th> 
-            <th> 
+            </th>
+            <th>
               <%= f.text_area :about %>
             </th>
-          </tr>   
+          </tr>
           <tr>
             <th>ジャンル</th>
             <th><%= f.collection_select :genre_id, @genres, :id, :name %></th>
-          </tr>   
+          </tr>
           <tr>
               <th><%= f.label :about, "税抜価格" %></th>
               <th><%= f.text_field :price %>円</th>
-          </tr>  
+          </tr>
           <tr>
               <th><%= f.label :about, "販売ステータス" %></th>
           	  <th><%= f.radio_button :is_active, true %>販売中　<%= f.radio_button :is_active, false %>販売停止中</th>
               <th></th>
           	  <th><%= f.submit '新規登録', class: "button" %></th>
-          </tr>   
-      </tbody>
+          </tr>
         <% end %>
+
+      </tbody>
     </table>
-  </div>  
+  </div>
 </main>
