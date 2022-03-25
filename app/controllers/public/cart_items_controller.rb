@@ -24,7 +24,9 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
 
+
 def create
+
       if cart_item=CartItem.find_by(product_id: params[:cart_item][:product_id])
         cart_item.quantity += params[:cart_item][:quantity].to_i
         cart_item.save
@@ -39,7 +41,14 @@ def create
            redirect_to root_path
         end
       end
-end
+
+
+    end
+
+
+
+
+
 
   private
 
