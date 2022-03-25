@@ -97,7 +97,7 @@ main {
     background-color: #24140e;
     color: #e6b422;
     width:220px;
-     text-align: center;
+    justify-content: center;
 }
 .registrations,main{
    justify-content: center;
