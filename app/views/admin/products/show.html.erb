@@ -7,9 +7,9 @@
         </tr>
       </thead>
     </table>
-    
+
     <div class="product-image"><%=image_tag @product.get_image ,size: "400x300"%></div>
-    
+
      <table class="customers text-center">
     <tr>
       <th>商品名</th>
@@ -27,7 +27,7 @@
       <th>税込価格（税抜価格)</th>
       <th><%= @product.in_tax_price.to_s(:delimited) %>　(<%= @product.price.to_s(:delimited) %>)円</th>
     </tr>
-  
+
     <tr>
       <th>販売ステータス</th>
       <th>
