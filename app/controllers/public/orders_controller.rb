@@ -15,9 +15,9 @@ class Public::OrdersController < ApplicationController
         @order_items.quantity = cart_item.quantity
         @order_items.save
          current_customer.cart_items.destroy_all
-         redirect_to  orders_thank_you_path
+         
      end
-
+      redirect_to  orders_thank_you_path
  end
 
 

@@ -3,7 +3,8 @@ class Admin::OrderDetailsController < ApplicationController
     @order_detail =OrderDetail.find(params[:id])
     @order = @order_detail.order
     @order_detail.update(order_detail_params)
-    @order_details = @order.order_details.all
+    @order_details = @order.order_details
+    
     
     if @order_details.where(making_status: "製作中").any?
       @order.status = "製作中"
