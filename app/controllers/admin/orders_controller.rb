@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-  def show
+    def show
     @order = Order.find(params[:id])
     @order.postage  = 800
     @order_details = @order.order_details
@@ -13,8 +13,8 @@ class Admin::OrdersController < ApplicationController
     @total_price = @order.postage + @total
 
 
-
     end
+
 
 
 
@@ -33,13 +33,6 @@ class Admin::OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:status)
-
   end
 
-
-
-  def update
-
-
-  end
 end

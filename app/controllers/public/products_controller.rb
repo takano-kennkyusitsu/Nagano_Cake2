@@ -3,6 +3,8 @@ class Public::ProductsController < ApplicationController
     @products = Product.page(params[:page])
     @genres = Genre.all
   end
+  
+  
 
   def show
     @product = Product.find(params[:id])

@@ -39,6 +39,11 @@
         
       </tbody>
     </table>
+    <table class="links">
+    <tr>
+      <td><%= link_to "商品追加＋", new_admin_product_path, class: 'button' %></td>
+    </tr>
+  </table>
     <%= paginate @products %>
   </div>
 </main>
