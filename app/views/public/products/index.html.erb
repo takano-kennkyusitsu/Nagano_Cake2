@@ -1,43 +1,48 @@
 <main>
-<div class="toumei">
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-2">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th class="text-center">ジャンル検索</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre|  %>
+  <div class="toumei">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 ">
+        <table class="customers">
+          <thead class="thead text-center">
             <tr>
-              <td><%=genre.name %></td>
+              <th>商品一覧</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-10 pl-3">
-      <section>
-
-        <div class="d-flex flex-wrap">
-          <% @products.each do |item| %>
-            <div class="mt-5 mr-3">
-              <%= link_to product_path(item.id) do %>
-                <%=image_tag item.image, size: "200x100" %><br>
-                <%= item.name %><br>
+          </thead>
+        </table>
+        <div class="genre-sarch">
+        <table class="customers">
+          <thead class="thead text-center">
+            <tr>
+              <th class="text-center">ジャンル検索</th>
+              <% @genres.each do |genre|  %>
+                <th><%=genre.name %></th>
               <% end %>
-              ¥<%= (item.price*1.1).floor %>
+            </tr>
+          </thead>
+        </table>
+        </div>
+        <div class="col-10 pl-3">
+          <section>
+    
+            <div class="d-flex flex-wrap">
+              <% @products.each do |item| %>
+                <div class="mt-5 mr-3">
+                  <%= link_to product_path(item.id) do %>
+                    <%=image_tag item.image, size: "200x100" %><br>
+                    <%= item.name %><br>
+                  <% end %>
+                  ¥<%= (item.price*1.1).floor %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+            <div class="mt-5">
+             <%= paginate @products %>
+            </div>
+          </section>
         </div>
-        <div class="mt-5">
-         <%= paginate @products %>
-        </div>
-      </section>
+      </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
 </main>
