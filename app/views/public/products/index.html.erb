@@ -27,7 +27,7 @@
     
             <div class="d-flex flex-wrap">
               <% @products.each do |item| %>
-                <div class="mt-5 mr-5 ml-3">
+                <div class="mt-5 ml-5">
                   <%= link_to product_path(item.id) do %>
                     <%=image_tag item.image, size: "200x100" %><br>
                     <%= item.name %><br>
