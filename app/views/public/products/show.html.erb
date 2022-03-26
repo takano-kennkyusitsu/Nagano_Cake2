@@ -19,18 +19,21 @@
           <div class="row">
            <%=image_tag @product.get_image, size: "500x400", class:"img-fluid mt-5"%>
            <div class="m-5">
+             <%= form_with model:@cart_item,local:true do |f| %>
              <table class="table">
                <tr><h3><strong><%= @product.name %></strong></h3></tr>
                <tr><h4><%= @product.about %></h4></tr>
                <tr><h4>¥<%= @product.in_tax_price.to_s(:delimited) %>(税込)</h4></tr>
+               
                <tr>
-                 <%= form_with model:@cart_item,local:true do |f| %>
                  <%= f.hidden_field :product_id, :value => @product.id %>
                  <th><%= f.select :quantity,*[1..10]  , { include_blank: '個数選択'}, { class: 'form-select pr-4 py-2'  , required: true } %></th>
-                 <th> <%=f.submit 'カートに入れる',class:"button"%></th>
-                 <% end %>
+               </tr>
+               <tr> 
+               <th><%=f.submit 'カートに入れる',class:"button"%></th>
                </tr>
              </table>
+             <% end %>
            </div>
         </div>
      </div>
